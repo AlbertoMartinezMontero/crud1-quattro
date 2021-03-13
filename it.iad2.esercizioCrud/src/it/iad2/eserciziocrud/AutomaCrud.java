@@ -6,8 +6,9 @@ public class AutomaCrud implements State {
     private Prodotto prodotto;
     UIAutomabileCrud gui;
 
-    public AutomaCrud() {
-        stato = new RicercaState();
+    public AutomaCrud(UIAutomabileCrud gui) {
+        this.gui = gui;
+        stato = new AggiungiState();
     }
 
     @Override
@@ -20,6 +21,13 @@ public class AutomaCrud implements State {
 
     public class RicercaState implements State {
 
+        public RicercaState() {
+            gui.vaiStatoRicerca();
+            //presumo che ci vada uno stato messaggio,ma non ho capito cosa fa il metodo in concreto
+        }
+        
+        
+
         @Override
         public void next(Event e) {
             if (e instanceof AddEvent) {
@@ -28,6 +36,7 @@ public class AutomaCrud implements State {
                 stato = new VisualizzaState();
             } else if (e instanceof RicercaEvent) {
                 System.out.println("Ho aggiornato la tabella");
+                // //presumo che ci vada uno stato messaggio,ma non ho capito cosa fa il metodo in concreto
             } else {
                 System.out.println("Evento inatteso");
             }
@@ -37,6 +46,12 @@ public class AutomaCrud implements State {
     }
 
     public class AggiungiState implements State {
+
+        public AggiungiState() {
+            gui.vaiStatoAggiungi();
+        }
+        
+        
 
         @Override
         public void next(Event e) {
@@ -52,6 +67,12 @@ public class AutomaCrud implements State {
     }
 
     public class VisualizzaState implements State {
+
+        public VisualizzaState() {
+            gui.vaiStatoVisualizza();
+        }
+        
+        
 
         @Override
         public void next(Event e) {
@@ -73,6 +94,12 @@ public class AutomaCrud implements State {
 
     public class ModificaState implements State {
 
+        public ModificaState() {
+            gui.vaiStatoModifica();
+        }
+        
+        
+
         @Override
         public void next(Event e) {
             if (e instanceof AnnullaEvent) {
@@ -86,6 +113,12 @@ public class AutomaCrud implements State {
     }
 
     public class RimuoviState implements State {
+
+        public RimuoviState() {
+            gui.vaiStatoRimuovi();
+        }
+        
+        
 
         @Override
         public void next(Event e) {
