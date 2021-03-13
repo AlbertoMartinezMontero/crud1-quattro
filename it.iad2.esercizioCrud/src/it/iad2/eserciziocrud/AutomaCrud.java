@@ -3,6 +3,8 @@ package it.iad2.eserciziocrud;
 public class AutomaCrud implements State {
 
     private State stato;
+    private Prodotto prodotto;
+    UIAutomabileCrud gui;
 
     public AutomaCrud() {
         stato = new RicercaState();
