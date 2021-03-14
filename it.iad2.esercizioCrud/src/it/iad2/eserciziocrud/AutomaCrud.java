@@ -3,13 +3,17 @@ package it.iad2.eserciziocrud;
 public class AutomaCrud implements State {
 
     private State stato;
-    private Prodotto prodotto;
+    
     UIAutomabileCrud gui;
 
     public AutomaCrud(UIAutomabileCrud gui) {
         this.gui = gui;
-        stato = new AggiungiState();
+        stato = new RicercaState();
     }
+
+   
+
+   
 
     @Override
     public void next(Event e) {

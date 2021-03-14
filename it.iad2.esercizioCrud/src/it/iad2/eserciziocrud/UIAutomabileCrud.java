@@ -12,6 +12,5 @@ public interface UIAutomabileCrud {
 
     void vaiStatoRimuovi();
 
-    void vaiStatoMessaggio(String s);
 
 }
